@@ -1,0 +1,136 @@
+$mob_width: 425px;
+// padding: 0 20px;
+
+$input_size: 10px;
+
+$small_size: 12px;
+
+$size_14: 14px;
+
+$middle_size: 18px;
+
+$main_size: 20px;
+
+$big_size: 24px;
+
+$desk_size: 36px;
+
+$giant_size: 64px;
+
+
+
+
+$body_color       : #E5E5E5;
+$white_color      : #FFFFFF;
+$blue_color       : #6789FF;
+$dark_color       : #333333;
+$grey_color       : rgba(51, 51, 51, 0.5);
+$placeholder_color: #B4B4B4;
+
+@mixin flex {
+    display: flex;
+}
+
+@mixin flex_center {
+    @include flex;
+    align-items: center;
+}
+
+@mixin flex_center_between {
+    @include flex;
+    @include flex_center;
+    justify-content: space-between;
+}
+
+@mixin flex_center_center {
+    @include flex;
+    @include flex_center;
+    justify-content: center;
+}
+
+@mixin margin_1020 {
+    margin-bottom: 10px;
+    @media (min-width: 992px) {
+        margin-bottom: 20px;
+    }
+}
+
+@mixin font12_line_16 {
+    font-size: 12px;
+    line-height: 16px;
+    @media (min-width: 992px) {
+        font-size  : 16px;
+        line-height: 22px;
+    }
+}
+
+@mixin text_align {
+    text-align : center;
+    @media (min-width: 992px) {
+        text-align: left;
+    }
+}
+
+
+
+
+@mixin button_blue {
+    @include font12_line_16;
+    // height: 39px;
+    margin-right: 20px;
+    padding: 10px 10px 13px;
+    font-weight: 700;
+    border-radius: 5px;
+    border: none;
+    background: #6789FF;
+    box-shadow: inset 0px -3px 0px rgba(0, 0, 0, 0.25);
+    color: $white_color;
+    cursor: pointer;
+    transition: transform .5s;
+    &:hover {
+        transform: translateY(-10px);
+        box-shadow: 0px 4px 10px #6789FF, inset 0px -4px 0px rgba(0, 0, 0, 0.25);
+        // color: $blue_color;
+    }
+    &:active {
+        box-shadow: inset 0px 0px 7px rgba(0, 0, 0, 0.25);
+    }
+    @media (min-width: 992px) {
+        // height: 52px;
+        margin-right: 40px;
+        padding: 15px 20px 18px;
+        font-size: 14px;
+        line-height: 19px;
+    }
+}
+
+@mixin button_grey {
+    @include button_blue;
+    margin-right: unset;
+    color: $blue_color;
+    background: #FFFFFF;
+    box-shadow: inset 0px -4px 0px rgba(0, 0, 0, 0.25);
+    &:hover {
+        // color: $blue_color;
+    }
+    &:active {
+        
+    }
+}
+
+
+@mixin rbga_header {
+    @include font12_line_16;
+    font-weight: 700;
+    color      :$grey_color;
+}
+
+
+
+//   @mixin rbga_header_desk {
+//     @include rbga_header;
+//     @media (min-width: 992px) {
+//         font-size: 16px;
+//         line-height: 22px;
+//     }
+//   }

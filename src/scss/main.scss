@@ -1,0 +1,188 @@
+@import 'variables-mixins';
+
+.section {
+    // width: 100%;
+    // max-width: 425px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+@media (min-width: 576px) {
+    .section {
+        max-width: 540px;
+    }
+}
+@media (min-width: 768px) {
+    .section {
+        max-width: 720px;
+    }
+}
+@media (min-width: 992px) {
+    .section {
+        max-width: 960px;
+    }
+}
+@media (min-width: 1200px) {
+    .section {
+        max-width: 1140px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .section {
+        max-width: 1290px;
+    }
+}
+
+body {
+    background-color: $body_color;
+    font-family: 'Noto Sans', sans-serif;
+
+    ul, h1, h2, h3, h4, h5, h6, p {
+        margin: 0;
+    }
+
+    a, a:hover {
+        text-decoration: none;
+        color: $white_color;
+    }
+
+    a:focus, button:focus, input:focus, textarea:focus {
+        outline: none;
+    }
+
+    header {
+        padding-top: 30px;
+        padding-bottom: 55px;
+        background: url(../images/bg_header.png) no-repeat center center;
+        background-size: cover;
+        color: $white_color;
+
+        nav {
+            @include flex_center_between;
+            margin-bottom: 175px;
+
+            @media (min-width: 992px) {
+                margin-bottom: 245px;
+            }
+            
+            .logo {
+                width: 80px;
+                height: 20px;
+                @media (min-width: 992px) {
+                    width: 100px;
+                    height: 25px;
+                }
+            }
+
+            ul {
+                display: none;
+                @media (min-width: 992px) {
+                    @include flex_center_between;
+                    @include font12_line_16;
+                    width: 100%;
+                    max-width: 280px;
+                    list-style-type: none;
+                    padding-inline-start: unset;
+                    li {
+                        font-weight: 700;
+                        border-bottom: 1px solid transparent;
+                        transition: transform .4s;
+                        cursor: pointer;
+                    }
+                    li:hover {
+                       transform: translateY(-10px);
+                       border-bottom-color: $white_color;
+                    }
+                    li:active {
+                        border-bottom-color: #CCCCCC;
+                        color: #CCCCCC;
+                    }
+                }
+            }
+
+            a {
+                @include font12_line_16;
+                font-weight: 700;
+                .tel {
+                    width: 16px;
+                    height: 16px;
+                    margin-right: 5px;
+                    margin-bottom: -5px;
+                    @media (min-width: 992px) {
+                        width: 20px;
+                        height: 20px;
+                        margin-right: 10px;
+                    }
+                }
+            }
+        }
+        
+        h1 {
+            @include margin_1020;
+            @include text_align;
+            font-weight: 700;
+            font-size  : 20px;
+            line-height: 27px;
+            @media (min-width: 992px) {
+                max-width: 900px;
+                font-size  : 36px;
+                line-height: 49px;
+            }
+            span  {
+                color: $blue_color;
+            }
+        }
+        h5 {
+            @include margin_1020;
+            @include font12_line_16;
+            @include text_align;
+            font-weight: 400;
+        }
+
+        .buttons {
+            @include flex_center_center;
+            margin-bottom: 175px;
+            button:first-of-type {
+                @include button_blue;
+            }
+            
+            button:nth-of-type(2) {
+                @include button_grey;
+            }
+            @media (min-width: 992px) {
+                margin-bottom: 180px;
+            }
+        }
+        .down {
+            display: block;
+            width: 30px;
+            height: 25px;
+            margin-left: auto;
+            margin-right: auto;
+            fill: $white_color;
+            @media (min-width: 992px) {
+                width: 40px;
+                height: 35px;
+            }
+        }
+        @media (min-width: 992px) {
+            padding-bottom: 100px;
+        }
+    }
+
+
+
+
+    .about {
+        h3 {
+            @include rbga_header;
+        }
+    }
+
+
+   
+}
+
+
