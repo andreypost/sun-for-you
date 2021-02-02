@@ -90,6 +90,7 @@ body {
                         border-bottom: 1px solid transparent;
                         transition: transform .4s;
                         cursor: pointer;
+                        user-select: none;
                     }
                     li:hover {
                        transform: translateY(-10px);
