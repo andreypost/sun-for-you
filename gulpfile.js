@@ -24,7 +24,7 @@ const { src, dest, watch, parallel, series } = require('gulp'),
 const htmlPath = 'src/*.html', cssPath = 'src/css/*.css', sassPath = 'src/scss/**/*.scss', jsPath = 'src/js/*.js'
 
 function copyHtml() {
-    return src(htmlPath).pipe(dest('dist'))
+    return src(htmlPath).pipe(dest('./'))
 }
 
 function svgTask() {
@@ -51,13 +51,13 @@ function svgTask() {
             }
         },
     }))
-        .pipe(dest('dist/images'))
+        .pipe(dest('./images'))
 }
 
 function imgTask() {
     return src('src/images/*')
         .pipe(imagemin())
-        .pipe(dest('dist/images'))
+        .pipe(dest('./images'))
 }
 
 function cssTask() {
@@ -68,7 +68,7 @@ function cssTask() {
         .pipe(concatCss('styles.css'))
         .pipe(cssnano())
         // .pipe(sourcemaps.write('.'))
-        .pipe(dest('dist/css'));
+        .pipe(dest('./css'));
 }
 
 function jsTask() {
@@ -80,7 +80,7 @@ function jsTask() {
         .pipe(concat('main.js'))
         .pipe(uglify())
         // .pipe(sourcemaps.write('.'))
-        .pipe(dest('dist/js'))
+        .pipe(dest('./js'))
 }
 
 function watchTask() {

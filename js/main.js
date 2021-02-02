@@ -1,0 +1,1 @@
+"use strict";var _this=void 0;document.addEventListener("click",function(){console.log(_this)});

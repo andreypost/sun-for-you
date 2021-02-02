@@ -1,1 +1,5 @@
-console.log('main.js start')
+
+
+document.addEventListener('click', () => {
+    console.log( this )
+})
