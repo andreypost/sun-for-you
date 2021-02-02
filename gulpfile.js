@@ -11,7 +11,7 @@ const { src, dest, watch, parallel, series } = require('gulp'),
     imagemin = require('gulp-imagemin')
 
 
-const htmlPath = 'src/*.html', cssPath = 'src/css/*.css', sassPath = 'src/scss/**/*.scss', jsPath = 'src/js/*.js'
+const htmlPath = 'src/*.html', cssPath = 'src/css/*.css', sassPath = 'src/scss/**/*.scss', jsPath = 'src/js/*.js', svgPath = 'src/svg/*.svg'
 
 function copyHtml() {
     return src(htmlPath).pipe(htmlmin({ collapseWhitespace: true })).pipe(dest('./'))
@@ -26,7 +26,7 @@ function jsTask() {
 }
 
 function svgTask() {
-    return src('src/svg/*.svg').pipe(svgSprite({
+    return src(svgPath).pipe(svgSprite({
         // mode: {
         //     css: { // Activate the «css» mode
         //       render: {
@@ -52,20 +52,26 @@ function svgTask() {
         .pipe(dest('./images'))
 }
 
+function fontsTask() {
+    return src('src/fonts/*').pipe(dest('./fonts'))
+    // return src('src/fonts/*.{eot,svg,ttf,woff,woff2}').pipe(dest('./fonts'))
+}
+
 function imgTask() {
     return src('src/images/*').pipe(imagemin()).pipe(dest('./images'))
 }
 
 function watchTask() {
-    watch([htmlPath, cssPath, sassPath, jsPath], { events: 'all' }, parallel(copyHtml, cssTask, jsTask));
+    watch([htmlPath, cssPath, sassPath, jsPath, svgPath], { events: 'all' }, parallel(copyHtml, cssTask, jsTask, svgTask));
 }
 
 exports.copyHtml = copyHtml
 exports.cssTask = cssTask
 exports.jsTask = jsTask
 exports.svgTask = svgTask
+exports.fontsTask = fontsTask
 exports.imgTask = imgTask
-exports.default = series(parallel(copyHtml, cssTask, jsTask, svgTask, imgTask), watchTask);
+exports.default = series(parallel(copyHtml, cssTask, jsTask, svgTask, fontsTask, imgTask), watchTask);
 
 
 // if (process.env.NODE_ENV === 'production') {

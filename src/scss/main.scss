@@ -1,5 +1,21 @@
 @import 'variables-mixins';
 
+@font-face {
+    font-family: 'NotoSans_300';
+    src: url(../fonts/NotoSans-Light.ttf);
+}
+
+@font-face {
+    font-family: 'NotoSans_800';
+    src: url(../fonts/NotoSans-ExtraBold.ttf);
+}
+
+@font-face {
+    font-family: 'NotoSans_900';
+    src: url(../fonts/NotoSans-Black.ttf);
+}
+
+
 .section {
     // width: 100%;
     // max-width: 425px;
@@ -34,9 +50,13 @@
 }
 
 body {
-    background-color: $body_color;
-    font-family     : 'Noto Sans', sans-serif;
+    background-color: $white_color;
+    font-family     : NotoSans_900;
     user-select     : none;
+
+    p {
+        font-family     : NotoSans_300;
+    }
 
     ul,
     h1,
@@ -97,14 +117,14 @@ body {
 
                 @media (min-width: 992px) {
                     @include flex_center_bet;
-                    @include font12_line_16;
+                    @include font_12_16;
                     width               : 100%;
                     max-width           : 280px;
                     list-style-type     : none;
                     padding-inline-start: unset;
-
+                    
                     li {
-                        font-weight  : 700;
+                        font-family: NotoSans_800;
                         border-bottom: 1px solid transparent;
                         transition   : transform .4s;
                         cursor       : pointer;
@@ -123,8 +143,7 @@ body {
             }
 
             a {
-                @include font12_line_16;
-                font-weight: 700;
+                @include font_12_16;
 
                 .tel {
                     width        : 16px;
@@ -148,12 +167,10 @@ body {
             h1 {
                 @include margin_1020;
                 @include text_align;
-                font-weight: 700;
                 font-size  : 20px;
                 line-height: 27px;
 
                 @media (min-width: 992px) {
-                    max-width  : 900px;
                     font-size  : 36px;
                     line-height: 49px;
                 }
@@ -165,9 +182,9 @@ body {
 
             h5 {
                 @include margin_1020;
-                @include font12_line_16;
+                @include font_12_16;
                 @include text_align;
-                font-weight: 400;
+                font-family: NotoSans_300;
             }
 
             .buttons {
@@ -292,26 +309,31 @@ body {
 
         h6 {
             @include h6_heading;
+            @media (min-width: 992px) {
+                text-align: left;
+            }
         }
 
         h2 {
             @include h2_heading;
 
             @media (min-width: 992px) {
+                text-align: left;
                 &::after {
                     width: 187px;
+                    margin-left: 0
                 }
             }
         }
 
         p {
-            @include font12_line_16;
+            @include font_12_16;
             margin-bottom: 20px;
 
             span {
+                font-family: NotoSans_900;
                 font-size  : 18px;
                 line-height: 24px;
-                font-weight: 900;
 
                 @media (min-width: 992px) {
                     font-size  : 24px;
@@ -335,7 +357,44 @@ body {
 
     }
 
-    
+    .sevices {
+        padding-top   : 40px;
+        padding-bottom: 40px;
+        background-color: $section_color;
+
+        h6 {
+            @include h6_heading;
+        }
+
+        h2 {
+            @include h2_heading;
+
+            @media (min-width: 992px) {
+                &::after {
+                    width: 187px;
+                }
+            }
+        }
+
+        .description {
+            @include flex_col_center_bet;
+            >div {
+                svg {
+                    width: 70px;
+                    height: 70px;
+                }
+                h4 {
+                    @include h4_heading;
+                }
+                p {
+                    @include font_12_16;
+                    
+                }
+            }
+        }
+
+
+    }
 
 
 

@@ -17,8 +17,7 @@ $giant_size: 64px;
 
 
 
-$body_color       : #FCFCFC;
-$section_color    : #E5E5E5;
+$section_color    : #FCFCFC;
 $white_color      : #FFFFFF;
 $blue_color       : #6789FF;
 $dark_color       : #333333;
@@ -63,7 +62,7 @@ $placeholder_color: #B4B4B4;
     }
 }
 
-@mixin font12_line_16 {
+@mixin font_12_16 {
     font-size  : 12px;
     line-height: 16px;
 
@@ -82,10 +81,9 @@ $placeholder_color: #B4B4B4;
 }
 
 @mixin button_blue {
-    @include font12_line_16;
+    @include font_12_16;
     margin-right : 20px;
     padding      : 10px 10px 13px;
-    font-weight  : 700;
     border-radius: 5px;
     border       : none;
     background   : $blue_color;
@@ -125,16 +123,15 @@ $placeholder_color: #B4B4B4;
 
 
 @mixin h6_heading {
-    @include font12_line_16;
-    @include text_align;
+    @include font_12_16;
     margin-bottom: 10px;
-    font-weight: 700;
+    text-align: center;
     color      : $grey_color;
 }
 
 @mixin h2_heading {
-    @include text_align;
     line-height: 33px;
+    text-align: center;
     &::after {
         content: '';
         display: block;
@@ -148,8 +145,18 @@ $placeholder_color: #B4B4B4;
         line-height: 49px;
         &::after {
             width: 132px;
-            margin: 10px auto 30px 0;
+            margin-bottom: 30px;
         }
+    }
+}
+
+@mixin h4_heading {
+    font-size  : 18px;
+    line-height: 24px;
+
+    @media (min-width: 992px) {
+        font-size  : 24px;
+        line-height: 32px;
     }
 }
 
