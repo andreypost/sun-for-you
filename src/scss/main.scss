@@ -191,7 +191,6 @@ body {
                 display: none;
 
                 @media (min-width: 992px) {
-                    // height: 180px;
                     @include flex_col_center_bet;
 
                     div {
@@ -233,11 +232,25 @@ body {
                             background: $white_color;
                         }
 
+                        &:focus {
+                            outline: none;
+                        }
+
                         &:active {
                             box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.25);
                         }
+                    }
 
-                        
+                    &:hover {
+                        cursor: pointer;
+                    }
+
+                    &:hover div.active {
+                        cursor: auto;
+                    }
+
+                    &:focus {
+                        outline: none;
                     }
 
                 }
