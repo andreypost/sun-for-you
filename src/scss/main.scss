@@ -2,60 +2,33 @@
 
 @font-face {
     font-family: 'NotoSans_300';
-    src: url(../fonts/NotoSans-Light.ttf);
+    src        : url(../fonts/NotoSans-Light.ttf);
 }
 
 @font-face {
     font-family: 'NotoSans_800';
-    src: url(../fonts/NotoSans-ExtraBold.ttf);
+    src        : url(../fonts/NotoSans-ExtraBold.ttf);
 }
 
 @font-face {
     font-family: 'NotoSans_900';
-    src: url(../fonts/NotoSans-Black.ttf);
-}
-
-
-.section {
-    // width: 100%;
-    // max-width: 425px;
-    padding-left : 20px;
-    padding-right: 20px;
-    margin-left  : auto;
-    margin-right : auto;
-}
-
-@media (min-width: 576px) {
-    .section {
-        max-width: 540px;
-    }
-}
-
-@media (min-width: 768px) {
-    .section {
-        max-width: 720px;
-    }
-}
-
-@media (min-width: 992px) {
-    .section {
-        max-width: 960px;
-    }
-}
-
-@media (min-width: 1200px) {
-    .section {
-        max-width: 1140px;
-    }
+    src        : url(../fonts/NotoSans-Black.ttf);
 }
 
 body {
-    background-color: $white_color;
+    background-color: white;
     font-family     : NotoSans_900;
     user-select     : none;
 
+    .section {
+        padding-left : 20px;
+        padding-right: 20px;
+        margin-left  : auto;
+        margin-right : auto;
+    }
+
     p {
-        font-family     : NotoSans_300;
+        font-family: NotoSans_300;
     }
 
     ul,
@@ -77,7 +50,7 @@ body {
     a,
     a:hover {
         text-decoration: none;
-        color          : $white_color;
+        color          : white;
     }
 
     a:focus,
@@ -92,54 +65,19 @@ body {
         padding-bottom : 55px;
         background     : url(../images/bg_header.png) no-repeat center center;
         background-size: cover;
-        color          : $white_color;
+        color          : white;
 
         nav {
             @include flex_center_bet;
             margin-bottom: 175px;
 
-            @media (min-width: 992px) {
-                margin-bottom: 245px;
-            }
-
             .logo {
                 width : 80px;
                 height: 20px;
-
-                @media (min-width: 992px) {
-                    width : 100px;
-                    height: 25px;
-                }
             }
 
             ul {
                 display: none;
-
-                @media (min-width: 992px) {
-                    @include flex_center_bet;
-                    @include font_12_16;
-                    width               : 100%;
-                    max-width           : 280px;
-                    list-style-type     : none;
-                    padding-inline-start: unset;
-                    
-                    li {
-                        font-family: NotoSans_800;
-                        border-bottom: 1px solid transparent;
-                        transition   : transform .4s;
-                        cursor       : pointer;
-                    }
-
-                    li:hover {
-                        transform          : translateY(-10px);
-                        border-bottom-color: $white_color;
-                    }
-
-                    li:active {
-                        border-bottom-color: #CCCCCC;
-                        color              : #CCCCCC;
-                    }
-                }
             }
 
             a {
@@ -150,12 +88,6 @@ body {
                     height       : 16px;
                     margin-right : 5px;
                     margin-bottom: -5px;
-
-                    @media (min-width: 992px) {
-                        width       : 20px;
-                        height      : 20px;
-                        margin-right: 10px;
-                    }
                 }
             }
         }
@@ -169,11 +101,6 @@ body {
                 @include text_align;
                 font-size  : 20px;
                 line-height: 27px;
-
-                @media (min-width: 992px) {
-                    font-size  : 36px;
-                    line-height: 49px;
-                }
 
                 span {
                     color: $blue_color;
@@ -197,16 +124,256 @@ body {
                 button:nth-of-type(2) {
                     @include button_grey;
                 }
-
-                @media (min-width: 992px) {
-                    @include just_start;
-                }
             }
 
             .points {
                 display: none;
+            }
+        }
 
-                @media (min-width: 992px) {
+        .down {
+            display     : block;
+            width       : 30px;
+            height      : 25px;
+            margin-left : auto;
+            margin-right: auto;
+            fill        : white;
+            transition  : transform .4s;
+            cursor      : pointer;
+
+            &:hover {
+                transform: translateY(10px);
+            }
+
+            &:active {
+                fill: #DFDFDF;
+            }
+        }
+    }
+
+    .about {
+        @include flex_col_center_bet;
+        @include paddingY_40;
+        color: $dark_color;
+
+        h6 {
+            @include h6_heading;
+        }
+
+        h2 {
+            @include h2_heading;
+        }
+
+        p {
+            @include font_12_16;
+            margin-bottom: 20px;
+
+            span {
+                font-family: NotoSans_900;
+                font-size  : 18px;
+                line-height: 24px;
+            }
+        }
+
+        img {
+            @media (max-width: 992px) {
+                max-width: 480px;
+            }
+        }
+    }
+
+    .services {
+        @include paddingY_40;
+        background-color: $section_color;
+        color           : $dark_color;
+
+        h6 {
+            @include h6_heading;
+        }
+
+        h2 {
+            @include h2_heading;
+        }
+
+        .description {
+            display              : grid;
+            grid-template-columns: auto;
+            grid-gap             : 20px;
+
+            >div {
+                padding      : 40px 10px;
+                border-radius: 5px;
+                text-align   : center;
+                background   : white;
+                transition   : all .4s;
+                cursor       : pointer;
+
+                >div {
+                    @include flex_center_center;
+                    @include margin_1020;
+                    width           : 70px;
+                    height          : 70px;
+                    border-radius   : 50%;
+                    margin-right    : auto;
+                    margin-left     : auto;
+                    background-color: $blue_color;
+                    transition      : all .4s;
+                }
+
+                svg {
+                    fill      : white;
+                    transition: all .4s;
+                }
+
+                .services_01 svg {
+                    width : 40px;
+                    height: 44px;
+                }
+
+                .services_02 svg {
+                    width : 56px;
+                    height: 30px;
+                }
+
+                .services_03 svg {
+                    width : 42px;
+                    height: 42px;
+                }
+
+                h4 {
+                    @include h4_heading;
+                    @include margin_1020;
+                }
+
+                p {
+                    @include font_12_16;
+                }
+
+                &:hover {
+                    transform       : translateY(-10px);
+                    background-color: $blue_color;
+                    box-shadow      : 0px 10px 15px rgba(0, 0, 0, 0.1);
+                    color           : white;
+                }
+
+                &:hover>div {
+                    background-color: white;
+                }
+
+                &:hover svg {
+                    fill: $blue_color;
+                }
+            }
+        }
+    }
+
+    .advantages {
+        @include flex_col_center_bet;
+        @include paddingY_40;
+        color: $dark_color;
+
+        h6 {
+            @include h6_heading;
+        }
+
+        h2 {
+            @include h2_heading;
+
+            &::after {
+                width: 240px;
+            }
+        }
+    }
+
+    .comments {
+        @include flex_col_center_bet;
+        @include paddingY_40;
+        color           : $dark_color;
+        background-color: $section_color;
+
+        h6 {
+            @include h6_heading;
+        }
+
+        h2 {
+            @include h2_heading;
+        }
+
+    }
+
+
+    @media (min-width: 576px) {
+        .section {
+            max-width: 540px;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .section {
+            max-width: 720px;
+        }
+    }
+
+    @media (min-width: 992px) {
+        .section {
+            max-width: 960px;
+        }
+
+        header {
+            padding-bottom: 100px;
+
+            nav {
+                margin-bottom: 245px;
+
+                .logo {
+                    width : 100px;
+                    height: 25px;
+                }
+
+                ul {
+                    @include flex_center_bet;
+                    @include font_12_16;
+                    width               : 100%;
+                    max-width           : 280px;
+                    list-style-type     : none;
+                    padding-inline-start: unset;
+
+                    li {
+                        font-family  : NotoSans_800;
+                        border-bottom: 1px solid transparent;
+                        transition   : transform .4s;
+                        cursor       : pointer;
+
+                        &:hover {
+                            transform          : translateY(-10px);
+                            border-bottom-color: white;
+                        }
+
+                        &:active {
+                            border-bottom-color: #CCCCCC;
+                            color              : #CCCCCC;
+                        }
+                    }
+                }
+
+                a .tel {
+                    width       : 20px;
+                    height      : 20px;
+                    margin-right: 10px;
+                }
+            }
+
+            .banner {
+                h1 {
+                    font-size  : 36px;
+                    line-height: 49px;
+                }
+
+                .buttons {
+                    justify-content: flex-start;
+                }
+
+                .points {
                     @include flex_col_center_bet;
 
                     div {
@@ -225,9 +392,9 @@ body {
 
                         &.active button {
                             padding   : 7px;
-                            border    : 0.5px solid $white_color;
+                            border    : 0.5px solid white;
                             box-shadow: 0 0 0px 1.5px black inset;
-                            background: $white_color;
+                            background: white;
                         }
 
                         &:hover button {
@@ -239,9 +406,9 @@ body {
                         &:hover.active button {
                             cursor    : auto;
                             padding   : 7px;
-                            border    : 0.5px solid $white_color;
+                            border    : 0.5px solid white;
                             box-shadow: 0 0 0px 1.5px black inset;
-                            background: $white_color;
+                            background: white;
                         }
 
                         &:focus {
@@ -264,138 +431,79 @@ body {
                     &:focus {
                         outline: none;
                     }
-
                 }
             }
 
-            @media (min-width: 992px) {
-                margin-bottom: 180px;
-            }
-        }
-
-        .down {
-            display     : block;
-            width       : 30px;
-            height      : 25px;
-            margin-left : auto;
-            margin-right: auto;
-            fill        : $white_color;
-            transition  : transform .4s;
-            cursor      : pointer;
-
-            &:hover {
-                transform: translateY(10px);
-            }
-
-            &:active {
-                fill: #DFDFDF;
-            }
-
-            @media (min-width: 992px) {
+            .down {
                 width : 40px;
                 height: 35px;
             }
         }
 
-        @media (min-width: 992px) {
-            padding-bottom: 100px;
-        }
-    }
+        .about {
+            flex-flow: row;
 
-    .about {
-        @include flex_col_center_bet;
-        padding-top   : 40px;
-        padding-bottom: 40px;
-
-        h6 {
-            @include h6_heading;
-            @media (min-width: 992px) {
+            h6 {
                 text-align: left;
             }
-        }
 
-        h2 {
-            @include h2_heading;
-
-            @media (min-width: 992px) {
+            h2 {
                 text-align: left;
+
                 &::after {
-                    width: 187px;
+                    width      : 187px;
                     margin-left: 0
                 }
             }
-        }
 
-        p {
-            @include font_12_16;
-            margin-bottom: 20px;
-
-            span {
-                font-family: NotoSans_900;
-                font-size  : 18px;
-                line-height: 24px;
-
-                @media (min-width: 992px) {
-                    font-size  : 24px;
-                    line-height: 33px;
-                }
+            p span {
+                font-size  : 24px;
+                line-height: 33px;
             }
-        }
 
-        img {
-            @media (max-width: 992px) {
-                max-width: 480px;
-            }
-            @media (min-width: 992px) {
+            img {
                 margin-left: 65px;
             }
         }
 
-        @media (min-width: 992px) {
-            flex-flow: row;
-        }
+        .services {
+            h2::after {
+                width        : 187px;
+                margin-bottom: 50px;
+            }
 
-    }
+            .description {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
 
-    .sevices {
-        padding-top   : 40px;
-        padding-bottom: 40px;
-        background-color: $section_color;
+                >div {
+                    padding: 30px 26px;
 
-        h6 {
-            @include h6_heading;
-        }
-
-        h2 {
-            @include h2_heading;
-
-            @media (min-width: 992px) {
-                &::after {
-                    width: 187px;
+                    &:hover {
+                        transform: translateY(-20px);
+                    }
                 }
             }
         }
 
-        .description {
-            @include flex_col_center_bet;
-            >div {
-                svg {
-                    width: 70px;
-                    height: 70px;
-                }
-                h4 {
-                    @include h4_heading;
-                }
-                p {
-                    @include font_12_16;
-                    
-                }
+        .advantages {
+
+            h6,
+            h2 {
+                text-align: left;
+            }
+
+            h2::after {
+                margin-left: 0;
             }
         }
+        
 
 
     }
 
-
-
+    @media (min-width: 1200px) {
+        .section {
+            max-width: 1140px;
+        }
+    }
 }

@@ -158,9 +158,3 @@ template {
 [hidden] {
   display: none;
 }
-.test {
-  width: 50px;
-  height: 50px;
-  background: url(../svg/sprite.svg#down) no-repeat center center;
-}
-

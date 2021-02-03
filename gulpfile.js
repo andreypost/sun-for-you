@@ -25,6 +25,11 @@ function jsTask() {
     return src(jsPath).pipe(babel({ presets: ['@babel/env'] })).pipe(concat('main.js')).pipe(uglify()).pipe(dest('./js'))
 }
 
+function fontsTask() {
+    return src('src/fonts/*').pipe(dest('./fonts'))
+    // return src('src/fonts/*.{eot,svg,ttf,woff,woff2}').pipe(dest('./fonts'))
+}
+
 function svgTask() {
     return src(svgPath).pipe(svgSprite({
         // mode: {
@@ -44,17 +49,12 @@ function svgTask() {
         //     symbol: true // Activate the «symbol» mode
         //   },
         mode: {
-            stack: {
+            symbol: {
                 sprite: '../sprite.svg'
             }
         },
     }))
-        .pipe(dest('./svg'))
-}
-
-function fontsTask() {
-    return src('src/fonts/*').pipe(dest('./fonts'))
-    // return src('src/fonts/*.{eot,svg,ttf,woff,woff2}').pipe(dest('./fonts'))
+        .pipe(dest('./images'))
 }
 
 function imgTask() {
@@ -62,16 +62,16 @@ function imgTask() {
 }
 
 function watchTask() {
-    watch([htmlPath, cssPath, sassPath, jsPath, svgPath], { events: 'all' }, parallel(copyHtml, cssTask, jsTask, svgTask));
+    watch([htmlPath, cssPath, sassPath, jsPath, svgPath], { events: 'all' }, parallel(copyHtml, cssTask, jsTask, svgTask))
 }
 
 exports.copyHtml = copyHtml
 exports.cssTask = cssTask
 exports.jsTask = jsTask
-exports.svgTask = svgTask
 exports.fontsTask = fontsTask
+exports.svgTask = svgTask
 exports.imgTask = imgTask
-exports.default = series(parallel(copyHtml, cssTask, jsTask, svgTask, fontsTask, imgTask), watchTask);
+exports.default = series(parallel(copyHtml, cssTask, jsTask, fontsTask, svgTask, imgTask), watchTask)
 
 
 // if (process.env.NODE_ENV === 'production') {
