@@ -278,7 +278,6 @@ body {
 
         h2 {
             @include h2_heading;
-
             &::after {
                 width: 240px;
             }
@@ -286,7 +285,38 @@ body {
     }
 
     .comments {
-        @include flex_col_center_bet;
+        @include paddingY_40;
+        color           : $dark_color;
+        background-color: $section_color;
+
+        h6 {
+            @include h6_heading;
+        }
+
+        h2 {
+            @include h2_heading;
+        }
+
+    }
+
+    .feedback {
+        @include paddingY_40;
+        color           : $dark_color;
+
+        h6 {
+            @include h6_heading;
+        }
+
+        h2 {
+            @include h2_heading;
+            &::after {
+                width: 240px;
+            }
+        }
+
+    }
+
+    .questions {
         @include paddingY_40;
         color           : $dark_color;
         background-color: $section_color;
@@ -495,6 +525,18 @@ body {
             h2::after {
                 margin-left: 0;
             }
+        }
+
+
+
+        .feedback {
+    
+            h2 {
+                &::after {
+                    width: 132px;
+                }
+            }
+    
         }
         
 
