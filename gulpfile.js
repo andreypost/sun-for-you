@@ -49,7 +49,7 @@ function svgTask() {
             }
         },
     }))
-        .pipe(dest('./images'))
+        .pipe(dest('./svg'))
 }
 
 function fontsTask() {
