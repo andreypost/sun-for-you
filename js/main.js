@@ -1,1 +1,1 @@
-"use strict";var _this=void 0;document.addEventListener("click",function(){console.log(_this)});
+"use strict";document.addEventListener("click",function(t){t.target.closest(".scrollTo")&&!t.target.parentNode.classList.contains("active")&&(t=t.target,window.scrollBy({top:document.querySelector(".".concat(t.dataset.section)).getBoundingClientRect().top,behavior:"smooth"}),t.closest(".points")&&(t.closest(".points").querySelector(".active").classList.remove("active"),t.parentNode.classList.add("active")))});

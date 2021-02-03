@@ -22,7 +22,11 @@ function cssTask() {
 }
 
 function jsTask() {
-    return src(jsPath).pipe(babel({ presets: ['@babel/env'] })).pipe(concat('main.js')).pipe(uglify()).pipe(dest('./js'))
+    return src(jsPath)
+    .pipe(babel({ presets: ['@babel/env'] }))
+    .pipe(concat('main.js'))
+    .pipe(uglify())
+    .pipe(dest('./js'))
 }
 
 function fontsTask() {
