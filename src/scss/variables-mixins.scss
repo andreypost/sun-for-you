@@ -86,11 +86,9 @@ $placeholder_color: #B4B4B4;
     background   : $blue_color;
     box-shadow   : inset 0px -3px 0px rgba(0, 0, 0, 0.25);
     color        : white;
-    cursor       : pointer;
     transition   : all .5s;
 
     &:hover {
-        transform : translateY(-10px);
         box-shadow: 0px 4px 10px $blue_color, inset 0px -4px 0px rgba(0, 0, 0, 0.25);
     }
 
@@ -103,6 +101,9 @@ $placeholder_color: #B4B4B4;
         padding     : 15px 20px 18px;
         font-size   : 14px;
         line-height : 19px;
+        &:hover {
+            transform : translateY(-10px);
+        }
     }
 }
 

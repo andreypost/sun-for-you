@@ -53,6 +53,11 @@ body {
         color          : white;
     }
 
+    a,
+    button {
+        cursor: none;
+    }
+
     a:focus,
     button:focus,
     input:focus,
@@ -139,11 +144,6 @@ body {
             margin-right: auto;
             fill        : white;
             transition  : transform .4s;
-            cursor      : pointer;
-
-            &:hover {
-                transform: translateY(10px);
-            }
 
             &:active {
                 fill: #DFDFDF;
@@ -206,7 +206,6 @@ body {
                 text-align   : center;
                 background   : white;
                 transition   : all .4s;
-                cursor       : pointer;
 
                 >div {
                     @include flex_center_center;
@@ -250,7 +249,6 @@ body {
                 }
 
                 &:hover {
-                    transform       : translateY(-10px);
                     background-color: $blue_color;
                     box-shadow      : 0px 10px 15px rgba(0, 0, 0, 0.1);
                     color           : white;
@@ -272,16 +270,58 @@ body {
         @include paddingY_40;
         color: $dark_color;
 
-        h6 {
-            @include h6_heading;
-        }
+        article {
+            h6 {
+                @include h6_heading;
+            }
+    
+            h2 {
+                @include h2_heading;
+    
+                &::after {
+                    width: 240px;
+                    margin-bottom: 30px;
+                }
+            }
 
-        h2 {
-            @include h2_heading;
-            &::after {
-                width: 240px;
+            p {
+                @include flex_center;
+                font-size: 14px;
+                line-height: 19px;
+                margin-bottom: 5px;
+                &::before {
+                    content: '';
+                    display: inline-block;
+                    width: 3px;
+                    height: 58px;
+                    background-color: $blue_color;
+
+                }
+                span {
+                    font-family: NotoSans_900;
+                    font-size: 64px;
+                    line-height: 87px;
+                    font-style: italic;
+                    margin-right: 17px;
+                }
+                &:nth-of-type(1) {
+                    margin-left: 45px;
+                }
+                &:nth-of-type(2) {
+                    margin-left: 90px;
+                }
+                &:nth-of-type(3) {
+                    margin-left: 60px;
+                    margin-bottom: 20px;
+                }
             }
         }
+
+        img {
+            max-width: 460px;
+        }
+
+       
     }
 
     .comments {
@@ -301,7 +341,7 @@ body {
 
     .feedback {
         @include paddingY_40;
-        color           : $dark_color;
+        color: $dark_color;
 
         h6 {
             @include h6_heading;
@@ -309,6 +349,7 @@ body {
 
         h2 {
             @include h2_heading;
+
             &::after {
                 width: 240px;
             }
@@ -347,6 +388,11 @@ body {
     @media (min-width: 992px) {
         .section {
             max-width: 960px;
+        }
+
+        a,
+        button {
+            cursor: pointer;
         }
 
         header {
@@ -467,6 +513,11 @@ body {
             .down {
                 width : 40px;
                 height: 35px;
+                cursor: pointer;
+
+                &:hover {
+                    transform: translateY(10px);
+                }
             }
         }
 
@@ -507,6 +558,7 @@ body {
 
                 >div {
                     padding: 30px 26px;
+                    cursor : pointer;
 
                     &:hover {
                         transform: translateY(-20px);
@@ -516,29 +568,39 @@ body {
         }
 
         .advantages {
+            flex-flow: row;
+            padding-top: 75px;
+            padding-bottom: 75px;
 
-            h6,
-            h2 {
-                text-align: left;
+            img {
+                order: 1;
+                margin-right: 65px;
             }
 
-            h2::after {
-                margin-left: 0;
+            article {
+                order: 2;
+                
+                h6,
+                h2 {
+                    text-align: left;
+                }
+                
+                h2::after, p {
+                    margin-left: 0!important;
+                }
             }
         }
 
-
-
         .feedback {
-    
+
             h2 {
                 &::after {
                     width: 132px;
                 }
             }
-    
+
         }
-        
+
 
 
     }
