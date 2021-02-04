@@ -329,14 +329,83 @@ body {
         color           : $dark_color;
         background-color: $section_color;
 
-        h6 {
-            @include h6_heading;
+        article {
+
+            h6 {
+                @include h6_heading;
+            }
+            
+            h2 {
+                @include h2_heading;
+            }
         }
 
-        h2 {
-            @include h2_heading;
-        }
+        .content {
+            display              : grid;
+            grid-template-columns: auto;
+            grid-gap             : 20px;
+            
+            .stories {
+                padding: 20px;
+                border-radius: 5px;
+                margin-bottom: 22px;
+                text-align: center;
+                background: white;
+                position: relative;
+                transition: all .4s;
+                svg {
+                    width: 22px;
+                    height: 20px;
+                    margin-bottom: 10px;
+                    fill: $blue_color
+                }
+                .arrow {
+                    position: absolute;
+                    bottom: -13px;
+                    left: 0;
+                    right: 0;
+                    margin: 0 auto;
+                    width: 0; 
+                    height: 0; 
+                    border-left: 13px solid transparent;
+                    border-right: 13px solid transparent;
+                    border-top: 13px solid transparent;
+                    transition: all .4s;
+                }
+            }
+           
+            .people {
+                @include flex_center_center;
 
+                img {
+                    width: 50px;
+                    height: 50px;
+                    margin-right: 10px;
+                }
+
+                h5 {
+                    @include font_12_16;
+                    margin-bottom: 5px
+                }
+            }
+
+            p {
+                @include font_12_16;
+            }
+
+            >div:hover .stories {
+                background: $blue_color;
+                box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.05);
+                color: white;
+                svg {
+                    fill: white;
+                }
+                .arrow {
+                    border-top-color: $blue_color;
+                    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.05);
+                }
+            }
+        }
     }
 
     .feedback {
@@ -349,7 +418,6 @@ body {
 
         h2 {
             @include h2_heading;
-
             &::after {
                 width: 240px;
             }
@@ -587,6 +655,47 @@ body {
                 
                 h2::after, p {
                     margin-left: 0!important;
+                }
+                p::before {
+                    margin-right: 5px;
+                }
+            }
+        }
+
+        .comments {
+            padding-top: 75px;
+            padding-bottom: 180px;
+    
+            article h2:after {
+                margin-bottom: 60px;
+            }
+    
+            .content {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+
+                >div {
+                    transition: all .4s;
+                    cursor: pointer;
+                    &:hover {
+                        transform: translateY(-20px);
+                    }
+                }
+    
+                .stories {
+                    padding-top: 30px;
+                    padding-bottom: 30px;
+
+                    svg {
+                        width: 34px;
+                        height: 30px;
+                        margin-bottom: 20px;
+                    }
+                }
+
+                .people img {
+                    width: 70px;
+                    height: 70px;
+                    margin-right: 20px;
                 }
             }
         }
