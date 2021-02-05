@@ -208,8 +208,23 @@
         <article>
             <h6>ОБРАТНАЯ СВЯЗЬ</h6>
             <h2>СВЯЖИТЕСЬ С НАМИ ДЛЯ БЕСПЛАТНОЙ <br> КОНСУЛЬНАЦИИ</h2>
-
         </article>
+        <div class="">
+            <form action="POST" id="feedbackForm">
+                <h4>ЗАПОЛНИТЕ ФОРМУ И МЫ ВАМ ПЕРЕЗВОНИМ</h4>
+                <label for="name">Ваше имя*</label>
+                <input id="name" type="text" pattern="" placeholder="Евгений" autocomplete="off" required>
+                <label for="phone">Ваш телефон*</label>
+                <input id="phone" type="tel" pattern="^[0-9-+\s()]*$" minlength="8" placeholder="+38(098) 223 69 87" autocomplete="off" required>
+                <label for="text">Почему решили обратиться?*</label>
+                <textarea id="text" cols="30" rows="10" placeholder="У меня появилась проблема с..." required></textarea>
+                <label for="check">Я согласен на обработку моих персональных данных
+                    <input id="check" type="checkbox" required>
+                </label>
+                <button type="submit" form="feedbackForm">Отправить</button>
+            </form>
+            <img src="./images/feedback.png" alt="">
+        </div>
     </div>
 
 
@@ -233,7 +248,7 @@
     <h6>h6 - 11.72px</h6>
     <p>p - 16px</p> -->
 
+    <script src="./js/main.js"></script>
 </body>
-<script src="./js/main.js"></script>
 
 </html>
