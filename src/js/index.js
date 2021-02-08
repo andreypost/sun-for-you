@@ -11,3 +11,7 @@ document.addEventListener('click', (e) => {
         }
     }
 })
+feedbackForm.onsubmit = (e) => {
+    e.preventDefault()
+    feedbackForm.reset()
+}
