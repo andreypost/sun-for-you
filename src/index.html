@@ -211,13 +211,13 @@
             <form action="POST" id="feedbackForm">
                 <h4>ЗАПОЛНИТЕ ФОРМУ И МЫ ВАМ ПЕРЕЗВОНИМ</h4>
                 <label for="name">Ваше имя*</label>
-                <input id="name" type="text" placeholder="Евгений" autocomplete="off" required>
+                <input id="name" type="text" placeholder="Евгений" autocomplete="off" >
                 <label for="phone">Ваш телефон*</label>
-                <input id="phone" type="tel" pattern="^[0-9-+\s()]*$" minlength="8" placeholder="+38(098) 223 69 87" autocomplete="off" required>
+                <input id="phone" type="tel" pattern="^[0-9-+\s()]*$" minlength="8" placeholder="+38(098) 223 69 87" autocomplete="off" >
                 <label for="text">Почему решили обратиться?*</label>
-                <textarea id="text" placeholder="У меня появилась проблема с..." autocomplete="off" required></textarea>
+                <textarea id="text" placeholder="У меня появилась проблема с..." autocomplete="off" ></textarea>
                 <label for="check">
-                    <input id="check" type="checkbox" required>Я согласен на обработку моих персональных данных
+                    <input id="check" type="checkbox" >Я согласен на обработку моих персональных данных
                 </label>
                 <button type="submit" form="feedbackForm">Отправить</button>
             </form>
@@ -245,6 +245,15 @@
     <h5>h5 - 13.28px</h5>
     <h6>h6 - 11.72px</h6>
     <p>p - 16px</p> -->
+
+    <div class="canvas"></div>
+    <div class="modal">
+        <div class="close"></div>
+        <article>
+            <h4>СПАСИБО, ЧТО ВЫБРАЛИ НАС</h4>
+            <p></p>
+        </article>
+    </div>
 
     <script src="./js/main.js"></script>
 </body>

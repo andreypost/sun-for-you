@@ -31,6 +31,48 @@ $placeholder_color: #B4B4B4;
     }
 }
 
+@mixin paddingY_40 {
+    padding-top   : 40px;
+    padding-bottom: 40px;
+}
+
+@mixin h2_heading {
+    line-height: 33px;
+    text-align: center;
+    &::after {
+        content: '';
+        display: block;
+        width: 187px;
+        height: 2px;
+        margin: 10px auto 20px;
+        background-color: $blue_color;
+    }
+    @media (min-width: 992px) {
+        font-size  : 36px;
+        line-height: 49px;
+        &::after {
+            width: 132px;
+            margin-bottom: 30px;
+        }
+    }
+}
+
+@mixin h4_heading {
+    font-size  : 18px;
+    line-height: 24px;
+    @media (min-width: 992px) {
+        font-size  : 24px;
+        line-height: 32px;
+    }
+}
+
+@mixin h6_heading {
+    @include font_12_16;
+    margin-bottom: 10px;
+    text-align: center;
+    color      : $grey_color;
+}
+
 @mixin font_12_16 {
     font-size  : 12px;
     line-height: 16px;
@@ -85,46 +127,5 @@ $placeholder_color: #B4B4B4;
     }
 }
 
-@mixin paddingY_40 {
-    padding-top   : 40px;
-    padding-bottom: 40px;
-}
 
-
-@mixin h6_heading {
-    @include font_12_16;
-    margin-bottom: 10px;
-    text-align: center;
-    color      : $grey_color;
-}
-
-@mixin h2_heading {
-    line-height: 33px;
-    text-align: center;
-    &::after {
-        content: '';
-        display: block;
-        width: 187px;
-        height: 2px;
-        margin: 10px auto 20px;
-        background-color: $blue_color;
-    }
-    @media (min-width: 992px) {
-        font-size  : 36px;
-        line-height: 49px;
-        &::after {
-            width: 132px;
-            margin-bottom: 30px;
-        }
-    }
-}
-
-@mixin h4_heading {
-    font-size  : 18px;
-    line-height: 24px;
-    @media (min-width: 992px) {
-        font-size  : 24px;
-        line-height: 32px;
-    }
-}
 
