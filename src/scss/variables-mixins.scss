@@ -26,6 +26,7 @@ $placeholder_color: #B4B4B4;
 
 @mixin margin_1020 {
     margin-bottom: 10px;
+
     @media (min-width: 992px) {
         margin-bottom: 20px;
     }
@@ -38,20 +39,23 @@ $placeholder_color: #B4B4B4;
 
 @mixin h2_heading {
     line-height: 33px;
-    text-align: center;
+    text-align : center;
+
     &::after {
-        content: '';
-        display: block;
-        width: 187px;
-        height: 2px;
-        margin: 10px auto 20px;
+        content         : '';
+        display         : block;
+        width           : 187px;
+        height          : 2px;
+        margin          : 10px auto 20px;
         background-color: $blue_color;
     }
+
     @media (min-width: 992px) {
         font-size  : 36px;
         line-height: 49px;
+
         &::after {
-            width: 132px;
+            width        : 132px;
             margin-bottom: 30px;
         }
     }
@@ -60,6 +64,7 @@ $placeholder_color: #B4B4B4;
 @mixin h4_heading {
     font-size  : 18px;
     line-height: 24px;
+
     @media (min-width: 992px) {
         font-size  : 24px;
         line-height: 32px;
@@ -69,13 +74,14 @@ $placeholder_color: #B4B4B4;
 @mixin h6_heading {
     @include font_12_16;
     margin-bottom: 10px;
-    text-align: center;
-    color      : $grey_color;
+    text-align   : center;
+    color        : $grey_color;
 }
 
 @mixin font_12_16 {
     font-size  : 12px;
     line-height: 16px;
+
     @media (min-width: 992px) {
         font-size  : 16px;
         line-height: 22px;
@@ -84,6 +90,7 @@ $placeholder_color: #B4B4B4;
 
 @mixin text_align {
     text-align: center;
+
     @media (min-width: 992px) {
         text-align: left;
     }
@@ -99,19 +106,23 @@ $placeholder_color: #B4B4B4;
     box-shadow   : inset 0px -3px 0px rgba(0, 0, 0, 0.25);
     color        : white;
     transition   : all .5s;
+
     &:hover {
         box-shadow: 0px 4px 10px $blue_color, inset 0px -4px 0px rgba(0, 0, 0, 0.25);
     }
+
     &:active {
         box-shadow: inset 0px 0px 7px rgba(0, 0, 0, 0.25);
     }
+
     @media (min-width: 992px) {
         margin-right: 40px;
         padding     : 15px 20px 18px;
         font-size   : 14px;
         line-height : 19px;
+
         &:hover {
-            transform : translateY(-10px);
+            transform: translateY(-10px);
         }
     }
 }
@@ -122,10 +133,35 @@ $placeholder_color: #B4B4B4;
     color       : $blue_color;
     background  : white;
     box-shadow  : inset 0px -4px 0px rgba(0, 0, 0, 0.25);
+
     &:hover {
         box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.25), inset 0px -4px 0px rgba(0, 0, 0, 0.25);
     }
 }
 
+@mixin list {
+    @include flex_center_bet;
+    @include font_12_16;
+    width               : 100%;
+    max-width           : 280px;
+    margin-left         : 8%;
+    list-style-type     : none;
+    padding-inline-start: unset;
 
+    li {
+        font-family  : NotoSans_800;
+        border-bottom: 1px solid transparent;
+        transition   : transform .4s;
+        cursor       : pointer;
 
+        &:hover {
+            transform          : translateY(-10px);
+            border-bottom-color: white;
+        }
+
+        &:active {
+            border-bottom-color: #CCCCCC;
+            color              : #CCCCCC;
+        }
+    }
+}

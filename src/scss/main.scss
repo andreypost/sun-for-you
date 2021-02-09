@@ -567,7 +567,41 @@ body {
     }
 
     footer {
-            
+        background     : url(../images/bg_header.png) no-repeat 50%;
+        background-size: cover;
+        color          : #fff;
+
+        nav {
+            @include flex_center_bet;
+            padding-top  : 77px;
+            margin-bottom: 20px;
+
+            .logo {
+                width : 80px;
+                height: 20px;
+            }
+
+            ul {
+                display: none;
+            }
+
+            a {
+                @include font_12_16;
+
+                .tel {
+                    width        : 16px;
+                    height       : 16px;
+                    margin-right : 5px;
+                    margin-bottom: -5px;
+                }
+            }
+        }
+
+        p {
+            font-size     : 10px;
+            padding-bottom: 10px;
+            text-align    : center;
+        }
     }
 
     .modal {
@@ -695,29 +729,7 @@ body {
                 }
 
                 ul {
-                    @include flex_center_bet;
-                    @include font_12_16;
-                    width               : 100%;
-                    max-width           : 280px;
-                    list-style-type     : none;
-                    padding-inline-start: unset;
-
-                    li {
-                        font-family  : NotoSans_800;
-                        border-bottom: 1px solid transparent;
-                        transition   : transform .4s;
-                        cursor       : pointer;
-
-                        &:hover {
-                            transform          : translateY(-10px);
-                            border-bottom-color: white;
-                        }
-
-                        &:active {
-                            border-bottom-color: #CCCCCC;
-                            color              : #CCCCCC;
-                        }
-                    }
+                    @include list;
                 }
 
                 a .tel {
@@ -972,8 +984,10 @@ body {
             article h2::after {
                 margin-bottom: 50px;
             }
+
             .posts {
                 grid-template-columns: repeat(auto-fill, minmax(560px, 1fr));
+
                 >div svg {
                     min-width   : 50px;
                     min-height  : 50px;
@@ -985,7 +999,25 @@ body {
         }
 
         footer {
+            padding-top: 41px;
 
+            nav {
+                margin-bottom: 45px;
+
+                ul {
+                    @include list;
+                }
+
+                a .tel {
+                    width       : 20px;
+                    height      : 20px;
+                    margin-right: 10px;
+                }
+            }
+
+            p {
+                font-size: 14px;
+            }
         }
 
         .modal {
@@ -994,7 +1026,9 @@ body {
 
                 div {
                     cursor: pointer;
+
                     &:hover {
+
                         &::before,
                         &::after {
                             background-color: #FF645F;
