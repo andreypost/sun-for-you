@@ -13,9 +13,10 @@ document.addEventListener('click', (e) => {
 })
 feedbackForm.onsubmit = (e) => {
     e.preventDefault()
-    const showMessage = (message) => {
+    const showMessage = (message, color) => {
         let  modal = document.querySelector('.modal')
         modal.classList.add('active')
+        modal.querySelector('p').style.color = color
         modal.querySelector('p').innerHTML = message
         modal.onclick = (e) => {
             if (e.target === modal || e.target.closest('.close')) modal.classList.remove('active')
@@ -28,11 +29,10 @@ feedbackForm.onsubmit = (e) => {
         body: new FormData(feedbackForm)
     })
         .then(response => {
-            console.log(response)
             if (response.ok) {
-                showMessage('Мы с вами свяжемся в ближайшее время!')
+                showMessage('Мы с вами свяжемся в ближайшее время!', '#333333')
             } else {
-                showMessage('Сейчас невозможно отправить Ваши данные, попробуйте позже!')
+                showMessage('Сейчас невозможно отправить Ваши данные, попробуйте позже!', '#FF645F')
             }
         })
         .catch(console.error())

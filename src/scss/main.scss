@@ -203,9 +203,8 @@ body {
         }
 
         .description {
-            display              : grid;
-            grid-template-columns: auto;
-            grid-gap             : 20px;
+            display : grid;
+            grid-gap: 20px;
 
             >div {
                 padding      : 40px 10px;
@@ -332,8 +331,6 @@ body {
         img {
             max-width: 460px;
         }
-
-
     }
 
     .comments {
@@ -353,9 +350,8 @@ body {
         }
 
         .content {
-            display              : grid;
-            grid-template-columns: auto;
-            grid-gap             : 20px;
+            display : grid;
+            grid-gap: 20px;
 
             .stories {
                 padding      : 20px;
@@ -426,17 +422,20 @@ body {
 
     .feedback {
         @include paddingY_40;
-        color: $dark_color;
 
-        h6 {
-            @include h6_heading;
-        }
+        article {
+            color: $dark_color;
 
-        h2 {
-            @include h2_heading;
+            h6 {
+                @include h6_heading;
+            }
 
-            &::after {
-                width: 240px;
+            h2 {
+                @include h2_heading;
+
+                &::after {
+                    width: 240px;
+                }
             }
         }
 
@@ -461,37 +460,32 @@ body {
                     text-align   : center;
                 }
 
+                label,
+                input,
+                textarea {
+                    box-sizing   : border-box;
+                    width        : 100%;
+                    font-size    : 10px;
+                    padding-left : 20px;
+                    border       : none;
+                    border-radius: 5px;
+                }
+
                 label:not(:nth-of-type(4)) {
-                    box-sizing    : border-box;
-                    width         : 100%;
-                    padding-left  : 20px;
                     padding-bottom: 5px;
-                    font-size     : 10px;
                 }
 
                 input:not(#check) {
                     @include margin_1020;
-                    box-sizing   : border-box;
-                    width        : 100%;
-                    height       : 30px;
-                    padding-left : 20px;
-                    font-family  : NotoSans_800;
-                    font-size    : 10px;
-                    border-radius: 5px;
-                    border       : none;
+                    height     : 30px;
+                    font-family: NotoSans_800;
                 }
 
                 textarea {
                     @include margin_1020;
-                    box-sizing   : border-box;
-                    width        : 100%;
-                    height       : 70px;
-                    padding-top  : 10px;
-                    padding-left : 20px;
-                    font-family  : NotoSans_800;
-                    font-size    : 10px;
-                    border-radius: 5px;
-                    border       : none;
+                    height     : 70px;
+                    padding-top: 10px;
+                    font-family: NotoSans_800;
                 }
 
                 label::placeholder,
@@ -503,10 +497,9 @@ body {
 
                 label:nth-of-type(4) {
                     @include flex_center;
-                    width        : 100%;
                     font-family  : NotoSans_300;
                     margin-bottom: 20px;
-                    font-size    : 10px;
+                    padding-left : unset;
                 }
 
                 #check {
@@ -532,14 +525,115 @@ body {
         color           : $dark_color;
         background-color: $section_color;
 
-        h6 {
-            @include h6_heading;
+        article {
+
+            h6 {
+                @include h6_heading;
+            }
+
+            h2 {
+                @include h2_heading;
+            }
         }
 
-        h2 {
-            @include h2_heading;
+        .posts {
+            display : grid;
+            grid-gap: 20px;
+
+            >div {
+                display: flex;
+
+                svg {
+                    min-width   : 30px;
+                    min-height  : 30px;
+                    max-width   : 30px;
+                    max-height  : 30px;
+                    margin-right: 10px;
+                }
+
+                section {
+
+                    h4 {
+                        @include h4_heading;
+                        @include margin_1020;
+                    }
+
+                    p {
+                        @include font_12_16;
+                    }
+                }
+            }
+        }
+    }
+
+    footer {
+            
+    }
+
+    .modal {
+        display        : none;
+        height         : 3000px;
+        position       : fixed;
+        top            : 0;
+        left           : 0;
+        overflow       : auto;
+        background     : rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(15px);
+        z-index        : 999;
+
+        .modal_content {
+            width           : 90%;
+            margin          : 25vh auto 0;
+            border-radius   : 5px;
+            box-shadow      : 0px 10px 15px rgba(0, 0, 0, 0.1);
+            background-color: white;
+
+            >div {
+                margin-left: auto;
+                width      : 16px;
+                height     : 16px;
+                padding    : 5px;
+
+                &::before,
+                &::after {
+                    content         : '';
+                    display         : inherit;
+                    width           : 20px;
+                    height          : 2px;
+                    border-radius   : 1px;
+                    background-color: $dark_color;
+                }
+
+                &::before {
+                    transform: translate(-2px, 7px) rotate(45deg)
+                }
+
+                &::after {
+                    transform: translate(-2px, 5px) rotate(-45deg)
+                }
+            }
+
+            article {
+                max-width : 285px;
+                margin    : 0 auto;
+                padding   : 5px 0 30px;
+                text-align: center;
+                color     : $dark_color;
+
+                h4 {
+                    @include h4_heading;
+                    @include margin_1020;
+                }
+
+                p {
+                    font-size: 14px;
+                }
+            }
         }
 
+        &.active {
+            display: block;
+        }
     }
 
     .animate {
@@ -564,79 +658,6 @@ body {
 
         to {
             transform: scale(1)
-        }
-    }
-
-    .modal {
-        display        : none;
-        height         : 3000px;
-        position       : fixed;
-        top            : 0;
-        left           : 0;
-        overflow       : auto;
-        background     : rgba(255, 255, 255, 0.5);
-        backdrop-filter: blur(15px);
-        z-index        : 999;
-
-        .modal_content {
-            width           : 90%;
-            margin          : 25vh auto 0;
-            border-radius   : 5px;
-            box-shadow      : 0px 10px 15px rgba(0, 0, 0, 0.1);
-            background-color: white;
-
-            div {
-                margin-left: auto;
-                width      : 16px;
-                height     : 16px;
-                padding    : 5px;
-
-                &::before,
-                &::after {
-                    content         : '';
-                    display         : inherit;
-                    width           : 20px;
-                    height          : 2px;
-                    border-radius   : 1px;
-                    background-color: $dark_color;
-                }
-
-                &::before {
-                    transform: translate(-2px, 7px) rotate(45deg)
-                }
-
-                &::after {
-                    transform: translate(-2px, 5px) rotate(-45deg)
-                }
-
-                &:hover {
-
-                    &::before,
-                    &::after {
-                        background-color: #FF645F;
-                    }
-                }
-            }
-
-            article {
-                max-width : 285px;
-                margin    : 0 auto;
-                padding   : 5px 0 30px;
-                text-align: center;
-
-                h4 {
-                    @include h4_heading;
-                    @include margin_1020;
-                }
-
-                p {
-                    font-size: 14px;
-                }
-            }
-        }
-
-        &.active {
-            display: block;
         }
     }
 
@@ -904,11 +925,9 @@ body {
 
         .feedback {
 
-            h2 {
-                &::after {
-                    width        : 132px;
-                    margin-bottom: 50px;
-                }
+            article h2::after {
+                width        : 132px;
+                margin-bottom: 50px;
             }
 
             >div {
@@ -923,27 +942,19 @@ body {
                         margin-bottom: 26px;
                     }
 
-                    label:not(:nth-of-type(4)) {
-                        padding-left: 10px;
+                    label,
+                    input,
+                    textarea {
                         font-size   : 12px;
+                        padding-left: 10px;
                     }
 
                     input:not(#check) {
-                        height       : 40px;
-                        font-size    : 12px;
-                        padding-left : 10px;
-                        border-radius: 5px;
-                        border       : none;
+                        height: 40px;
                     }
 
                     textarea {
-                        height      : 100px;
-                        font-size   : 12px;
-                        padding-left: 10px;
-                    }
-
-                    label:nth-of-type(4) {
-                        font-size: 12px;
+                        height: 100px;
                     }
 
                     button {
@@ -955,6 +966,25 @@ body {
                     max-width: 460px;
                 }
             }
+        }
+
+        .questions {
+            article h2::after {
+                margin-bottom: 50px;
+            }
+            .posts {
+                grid-template-columns: repeat(auto-fill, minmax(560px, 1fr));
+                >div svg {
+                    min-width   : 50px;
+                    min-height  : 50px;
+                    max-width   : 50px;
+                    max-height  : 50px;
+                    margin-right: 20px;
+                }
+            }
+        }
+
+        footer {
 
         }
 
@@ -964,10 +994,18 @@ body {
 
                 div {
                     cursor: pointer;
+                    &:hover {
+                        &::before,
+                        &::after {
+                            background-color: #FF645F;
+                        }
+                    }
                 }
+
                 article {
                     max-width: 350px;
                     padding  : 20px 0 50px;
+
                     p {
                         font-size: 16px;
                     }
