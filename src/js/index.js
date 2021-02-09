@@ -14,22 +14,12 @@ document.addEventListener('click', (e) => {
 feedbackForm.onsubmit = (e) => {
     e.preventDefault()
     const showMessage = (message) => {
-        let canvas = document.querySelector('.canvas'),
-            modal = document.querySelector('.modal')
-
-        canvas.classList.add('active')
+        let  modal = document.querySelector('.modal')
         modal.classList.add('active')
-
-        canvas.onclick = (e) => {
-            canvas.classList.remove('active')
-            modal.classList.remove('active')
-        }
-        modal.querySelector('.close').onclick = (e) => {
-            canvas.classList.remove('active')
-            modal.classList.remove('active')
-        }
-
         modal.querySelector('p').innerHTML = message
+        modal.onclick = (e) => {
+            if (e.target === modal || e.target.closest('.close')) modal.classList.remove('active')
+        }
     }
     fetch('/submit', {
     // fetch('https://my-json-server.typicode.com/andreypost/db/posts', {

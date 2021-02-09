@@ -42,7 +42,8 @@ body {
         margin: 0;
     }
 
-    img, .canvas {
+    img,
+    .modal {
         width : 100%;
         height: auto;
     }
@@ -541,9 +542,34 @@ body {
 
     }
 
-    .canvas {
-        display: none;
-        height: 100%;
+    .animate {
+        -webkit-animation: animatezoom 0.4s;
+        animation        : animatezoom 0.4s;
+    }
+
+    @-webkit-keyframes animatezoom {
+        from {
+            -webkit-transform: scale(0)
+        }
+
+        to {
+            -webkit-transform: scale(1)
+        }
+    }
+
+    @keyframes animatezoom {
+        from {
+            transform: scale(0)
+        }
+
+        to {
+            transform: scale(1)
+        }
+    }
+
+    .modal {
+        display        : none;
+        height         : 3000px;
         position       : fixed;
         top            : 0;
         left           : 0;
@@ -551,61 +577,68 @@ body {
         background     : rgba(255, 255, 255, 0.5);
         backdrop-filter: blur(15px);
         z-index        : 999;
+
+        .modal_content {
+            width           : 90%;
+            margin          : 25vh auto 0;
+            border-radius   : 5px;
+            box-shadow      : 0px 10px 15px rgba(0, 0, 0, 0.1);
+            background-color: white;
+
+            div {
+                margin-left: auto;
+                width      : 16px;
+                height     : 16px;
+                padding    : 5px;
+
+                &::before,
+                &::after {
+                    content         : '';
+                    display         : inherit;
+                    width           : 20px;
+                    height          : 2px;
+                    border-radius   : 1px;
+                    background-color: $dark_color;
+                }
+
+                &::before {
+                    transform: translate(-2px, 7px) rotate(45deg)
+                }
+
+                &::after {
+                    transform: translate(-2px, 5px) rotate(-45deg)
+                }
+
+                &:hover {
+
+                    &::before,
+                    &::after {
+                        background-color: #FF645F;
+                    }
+                }
+            }
+
+            article {
+                max-width : 285px;
+                margin    : 0 auto;
+                padding   : 5px 0 30px;
+                text-align: center;
+
+                h4 {
+                    @include h4_heading;
+                    @include margin_1020;
+                }
+
+                p {
+                    font-size: 14px;
+                }
+            }
+        }
+
         &.active {
             display: block;
         }
     }
-
-    .modal {
-        display: none;
-        width: 90%;
-        position: fixed;
-        left: 0;
-        top: 30%;
-        right: 0;
-        margin: 0 auto;
-        border-radius: 5px;
-        box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
-        background-color: white;
-        z-index: 99999;
-        div {
-            margin-left: auto;
-            width: 16px;
-            height: 16px;
-            padding: 5px;
-            &::before, &::after {
-                content: '';
-                display: inherit;
-                width: 20px;
-                height: 2px;
-                border-radius: 1px;
-                background-color: $dark_color;
-            }
-            &::before {
-                transform: translate(-2px, 7px) rotate(45deg)
-            }
-            &::after {
-                transform: translate(-2px, 5px) rotate(-45deg)
-            }
-        }
-        article {
-            max-width: 285px;
-            margin: 5px auto 30px;
-            padding: 0 5px;
-            text-align: center;
-            h4 {
-                @include h4_heading
-                @include margin_1020;
-            }
-            p {
-                font-size: 14px;
-            }
-        }
-        &.active {
-            display: block;
-        }
-    }
-
 
     @media (min-width: 576px) {
         .section {
@@ -926,15 +959,18 @@ body {
         }
 
         .modal {
-            max-width: 450px;
-            div {
-                cursor: pointer;
-            }
-            article {
-                max-width: 350px;
-                margin: 20px auto 50px;
-                p {
-                    font-size: 16px;
+            .modal_content {
+                max-width: 450px;
+
+                div {
+                    cursor: pointer;
+                }
+                article {
+                    max-width: 350px;
+                    padding  : 20px 0 50px;
+                    p {
+                        font-size: 16px;
+                    }
                 }
             }
         }
