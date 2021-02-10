@@ -713,7 +713,9 @@ body {
         }
 
         a,
-        button {
+        button,
+        form label:nth-of-type(4),
+        #check {
             cursor: pointer;
         }
 
