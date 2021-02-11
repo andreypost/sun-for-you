@@ -15,13 +15,9 @@ document.addEventListener('click', (e) => {
 feedbackForm.onsubmit = (e) => {
     e.preventDefault()
     const showMessage = (message, color) => {
-        // let  modal = document.querySelector('.modal')
         modal.classList.add('active')
         modal.querySelector('p').style.color = color
         modal.querySelector('p').innerHTML = message
-        // modal.onclick = (e) => {
-            // if (e.target === modal || e.target.closest('.close')) modal.classList.remove('active')
-        // }
     }
     fetch('/submit', {
         method: 'POST',
