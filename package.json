@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/andreypost/blago.git"
   },
-  "author": "postoliuk.andrii",
+  "author": "andrii.postoliuk",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/andreypost/blago/issues"
@@ -19,7 +19,6 @@
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
-    "del": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
     "gulp-babel": "^8.0.0",
