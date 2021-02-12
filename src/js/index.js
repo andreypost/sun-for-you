@@ -33,6 +33,3 @@ feedbackForm.onsubmit = (e) => {
         .catch(console.error())
     feedbackForm.reset()
 }
-
-
-let 
