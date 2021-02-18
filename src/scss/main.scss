@@ -83,8 +83,7 @@ body {
             margin-bottom: 175px;
 
             .logo {
-                width : 80px;
-                height: 20px;
+                @include logo;
             }
 
             ul {
@@ -577,8 +576,7 @@ body {
             margin-bottom: 20px;
 
             .logo {
-                width : 80px;
-                height: 20px;
+                @include logo;
             }
 
             ul {
@@ -726,8 +724,7 @@ body {
                 margin-bottom: 245px;
 
                 .logo {
-                    width : 100px;
-                    height: 25px;
+                    @include logo;
                 }
 
                 ul {
@@ -1005,6 +1002,10 @@ body {
 
             nav {
                 margin-bottom: 45px;
+
+                .logo {
+                    @include logo;
+                }
 
                 ul {
                     @include list;
