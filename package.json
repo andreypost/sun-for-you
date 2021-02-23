@@ -1,21 +1,21 @@
 {
-  "name": "blago",
+  "name": "sun-for-you",
   "version": "1.0.0",
-  "description": "\"# blago\"",
+  "description": "\"# sun-for-you\"",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/andreypost/blago.git"
+    "url": "git+https://github.com/andreypost/sun-for-you.git"
   },
   "author": "andrii.postoliuk",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/andreypost/blago/issues"
+    "url": "https://github.com/andreypost/sun-for-you/issues"
   },
-  "homepage": "https://github.com/andreypost/blago#readme",
+  "homepage": "https://github.com/andreypost/sun-for-you#readme",
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
