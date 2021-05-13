@@ -1,5 +1,6 @@
-let modal = document.querySelector(".modal");
-document.addEventListener("click", (e) => {
+let modal = <HTMLDivElement>document.querySelector(".modal"),
+form = <HTMLFormElement>document.getElementById("feedbackForm");
+document.addEventListener("click", (e: any) => {
   if (
     e.target.dataset.section &&
     !e.target.parentNode.classList.contains("active")
@@ -21,16 +22,17 @@ document.addEventListener("click", (e) => {
   } else if (e.target === modal || e.target.closest(".close"))
     modal.classList.remove("active");
 });
-feedbackForm.onsubmit = (e) => {
+
+form.onsubmit = (e: { preventDefault: () => void; }) => {
   e.preventDefault();
-  const showMessage = (message, color) => {
+  const showMessage = (message: string, color: string) => {
     modal.classList.add("active");
     modal.querySelector("p").style.color = color;
     modal.querySelector("p").innerHTML = message;
   };
   fetch("/submit", {
     method: "POST",
-    body: new FormData(feedbackForm),
+    body: new FormData(form),
   })
     .then((response) => {
       if (response.ok) {
@@ -42,6 +44,8 @@ feedbackForm.onsubmit = (e) => {
         );
       }
     })
-    .catch(console.error());
-  feedbackForm.reset();
+    .catch(error=> console.log(error));
+  form.reset();
 };
+
+
